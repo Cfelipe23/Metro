@@ -160,13 +160,15 @@ function CrudRuta() {
                     <div className="btn-group" role="group" aria-label="Basic mixed styles example">
                         {
                             editar ? <div>
-                                <button className="btn btn-success m-3"
+                                <button className="btn btn-success rounded-pill px-3 mx-3 mb-3"
                                     onClick={update}> Actualizar</button>
-                                <button className="btn btn-success m-3"
+                                <button className="btn btn-secondary rounded-pill px-3 mx-3 mb-3"
                                     onClick={limpiarCampos}> Cancelar</button>
                             </div>
 
-                                : <button type="button" className="btn btn-success mx-3" style={{ borderRadius: '10%' }}
+                                : <button type="button"
+                                    className="btn btn-success rounded-pill px-3 mx-3 mb-3"
+                                    style={{ borderRadius: '10%' }}
                                     onClick={agregarCompania}>Guardar Compañia</button>
                         }
                     </div>
@@ -175,43 +177,48 @@ function CrudRuta() {
             <br />
             <br />
 
-            <table className="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Nombre Compañia</th>
-                        <th scope="col">Correo</th>
-                        <th scope="col">Telefono</th>
-                        <th scope="col">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {companiaList.map((val, key) => {
-                        return (
-                            <tr key={val.id_compania}>
-                                <th>{val.id_compania}</th>
-                                <th>{val.nombre}</th>
-                                <th>{val.correo}</th>
-                                <th>{val.telefono}</th>
-                                <td>
-                                    <div className="btn-group" role="group" aria-label="Basic mixed styles example">
-                                        <button
-                                            type="button"
-                                            onClick={() => { editarCompania(val) }}
-                                            className='btn btn-warning '>Actualizar</button>
-                                        <button
-                                            type="button"
-                                            onClick={() => { deleteCompania(val) }}
-                                            className='btn btn-danger '>Eliminar</button>
-                                    </div>
-                                </td>
-                            </tr>
-                        );
-                    })}
-                </tbody>
-            </table >
+
+            <div className="table-responsive">
+
+                <table className="table table-striped">
+                    <thead>
+                        <tr>
+                            <th className="table-success text-center" scope="col">ID</th>
+                            <th className="table-success text-center" scope="col">Nombre Compañia</th>
+                            <th className="table-success text-center" scope="col">Correo</th>
+                            <th className="table-success text-center" scope="col">Telefono</th>
+                            <th className="table-success text-center" scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {companiaList.map((val, key) => {
+                            return (
+                                <tr key={val.id_compania}>
+                                    <th >{val.id_compania}</th>
+                                    <td>{val.nombre}</td>
+                                    <td>{val.correo}</td>
+                                    <td>{val.telefono}</td>
+                                    <td>
+                                        <div className="btn-group" role="group" aria-label="Basic mixed styles example">
+                                            <button
+                                                type="button"
+                                                onClick={() => { editarCompania(val) }}
+                                                className='btn btn-warning'>Actualizar</button>
+                                            <button
+                                                type="button"
+                                                onClick={() => { deleteCompania(val) }}
+                                                className='btn btn-danger'>Eliminar</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            );
+                        })}
+                    </tbody>
+                </table >
+
+            </div>
             <div className="Centrar">
-                <Link to="/" className="btn btn-success mx-3" style={{ borderRadius: '10%' }}>Regresar</Link>
+                <Link to="/" className="btn btn-success rounded-pill px-3 mx-3" style={{ borderRadius: '10%' }}>Regresar</Link>
             </div>
         </div >
     );

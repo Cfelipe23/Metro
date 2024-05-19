@@ -199,7 +199,7 @@ function CrudBus() {
                                 aria-label={`Lugar ${index + 1}`}
                                 aria-describedby="basic-addon1" />
                             {lugares.length > 1 && <button className="btn btn-danger" onClick={() => eliminarLugar(index)}>-</button>}
-                            {index === lugares.length - 1 && <button className="btn btn-success mx-3" onClick={agregarLugar}>+</button>}
+                            {index === lugares.length - 1 && <button className="btn btn-success " onClick={agregarLugar}>+</button>}
                         </div>
                     </div>
                 ))}
@@ -208,15 +208,15 @@ function CrudBus() {
                     {
                        editar ? <div>
                             <button 
-                                className="btn btn-success m-3"
+                                className="btn btn-success rounded-pill px-3 mx-3 mb-3"
                                 onClick={update}> Actualizar</button>
                             <button 
-                                className="btn btn-success m-3"
+                                className="btn btn-secondary rounded-pill px-3 mx-3 mb-3"
                                 onClick={limpiarCampos}> Cancelar</button>
                         </div>
                             : <button 
                             type="button" 
-                            className="btn btn-success mx-3" 
+                            className="btn btn-success rounded-pill px-3 mx-3 mb-3"
                             style={{ borderRadius: '10%' }} 
                             onClick={agregarBus}>Guardar Auto-Bus</button>
                     }
@@ -224,15 +224,17 @@ function CrudBus() {
                 </div>
             </div>
             <br />
+
+            <div className="table-responsive"> 
             <table className="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Numero de Ruta</th>
-                        <th scope="col">Placa</th>
-                        <th scope="col">Compañia</th>
-                        <th scope="col">Lugares por recorrer</th>
-                        <th scope="col">Acciones</th>
+                        <th className="table-success text-center" scope="col">ID</th>
+                        <th className="table-success text-center" scope="col">Numero de Ruta</th>
+                        <th className="table-success text-center" scope="col">Placa</th>
+                        <th className="table-success text-center" scope="col">Compañia</th>
+                        <th className="table-success text-center" scope="col">Lugares por recorrer</th>
+                        <th className="table-success text-center" scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -260,13 +262,12 @@ function CrudBus() {
                         );
                     })}
                 </tbody>
-            </table>
-            <div>
-                <button className='btn btn-success m-3' onClick={getBus}>Actualizar</button>
-                <button className='btn btn-warning' onClick={null}>Cancelar</button>
+            </table >
+
+
             </div>
             <div className="Centrar">
-                <Link to="/" className='btn btn-success'>Regresar</Link>
+                <Link to="/" className='btn btn-success rounded-pill px-3'>Regresar</Link>
             </div>
         </div>
 
