@@ -1,0 +1,20 @@
+.RectanguloCompania {
+    
+  background-color: rgba(217, 217, 217, 1);
+  border-radius: 10px;
+  padding: 0 auto;
+  max-width: 0 auto; 
+  margin: 0 auto;
+}
+
+.Button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Centrar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
