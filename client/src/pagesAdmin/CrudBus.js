@@ -2,6 +2,7 @@ import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from "react";
+
 import Axios from "axios";
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
@@ -149,7 +150,7 @@ function CrudBus() {
     return (
         <div className="container">
             <br />
-            <div className="RectanguloCompania">
+            <div className="RectanguloCompania px-4 py-3">
                 <br />
                 <div className="input-group mb-2">
                     <span className="input-group-text" id="basic-addon1">Numero de Ruta</span>

@@ -23,6 +23,22 @@ db.connect((err) => {
     }
     console.log('Conectado a la base de datos MySQL');
 });
+
+//----------sentencias SQL sobre el Login---------------
+app.post('/login', (req, res) => {
+    const sql = "SELECT * FROM login WHERE username = ? AND password = ?";
+
+    db.query(sql, [req.body.email, req.body.password], (err, data) => {
+        if (err) return res.status(500).json({ success: false, message: "Error en el servidor" });
+        if (data.length > 0) {
+            return res.json({ success: true });
+        } else {
+            return res.json({ success: false, message: "Credenciales erroneas" });
+        }
+    });
+});
+
+
 //----------sentencias SQL sobre la bd de compañia---------------
 app.post("/createCompania", (req, res) => {
     const nombre = req.body.nombre;
@@ -55,12 +71,12 @@ app.get("/selectCompania", (req, res) => {
         }
     );
 });
-app.get("/compania", (req,res)=>{
+app.get("/compania", (req, res) => {
     db.query("SELECT * FROM compania",
-        (error, result) =>{
-            if(error){
+        (error, result) => {
+            if (error) {
                 console.log("error al seleccionar en la bd compañia")
-            }else{
+            } else {
                 res.send(result);
             }
         }
@@ -92,25 +108,23 @@ app.put("/updateCompania", (req, res) => {
             if (error) {
                 console.log('Error al actualizar en la base de datos:', error);
 
-            }else{
+            } else {
                 res.send(result);
             }
-            
+
         }
     );
 });
 
-
-
 //----------sentencias SQL sobre la bd de autobuses--------------
-app.get("/bus", (req,res)=>{
+app.get("/bus", (req, res) => {
     db.query("SELECT * FROM bus",
-        (error, result) =>{
-            if(error){
+        (error, result) => {
+            if (error) {
                 console.log("error al seleccionar en la bd compañia")
-            }else{
+            } else {
                 res.send(result);
-                
+
             }
         }
     );
@@ -118,8 +132,8 @@ app.get("/bus", (req,res)=>{
 app.post("/createBus", (req, res) => {
     const numeroBus = req.body.numeroBus;
     const placa = req.body.placa;
-    const compania = req.body.companiaSeleccionada; 
-    const lugares = req.body.lugares; 
+    const compania = req.body.companiaSeleccionada;
+    const lugares = req.body.lugares;
     // Convierte el array de lugares a una cadena separada por comas
     const lugaresString = lugares.join(',');
     db.query(
@@ -138,15 +152,15 @@ app.post("/createBus", (req, res) => {
 app.delete("/deleteBus/:id", (req, res) => {
     const id = req.params.id;
 
-    db.query('DELETE FROM bus WHERE id_bus=?',id,
+    db.query('DELETE FROM bus WHERE id_bus=?', id,
         (error, result) => {
             if (error) {
                 console.log('Error al eliminar en la base de datos:', error);
-            }else{
-                
+            } else {
+
                 res.send(result);
             }
-            
+
         }
     );
 });
@@ -154,18 +168,18 @@ app.put("/updateBus", (req, res) => {
     const id = req.body.id;
     const numeroBus = req.body.numeroBus;
     const placa = req.body.placa;
-    const compania = req.body.companiaSeleccionada; 
-    const lugares = req.body.lugares; 
+    const compania = req.body.companiaSeleccionada;
+    const lugares = req.body.lugares;
     const lugaresString = lugares.join(',');
     db.query("UPDATE bus SET numeroBus=?, placa=?, lugares=? , compania=? WHERE id_bus=?",
-        [numeroBus, placa, lugaresString, compania,id],
+        [numeroBus, placa, lugaresString, compania, id],
         (error, result) => {
             if (error) {
                 console.log('Error al actualizar en la base de datos:', error);
-            }else{
+            } else {
                 res.send(result);
             }
-            
+
         }
     );
 });
