@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function OffcanvasExample() {
+function OffcanvasAdmin() {
     const [showOffcanvas, setShowOffcanvas] = useState(false);
     
 
@@ -56,16 +56,16 @@ function OffcanvasExample() {
                     <nav>
                         <ul>
                             <li>
-                                <Link to="/" onClick={closeMenu}>Perfil</Link>
+                                <Link to="/admin/agregarCompania" onClick={closeMenu}>Agregar Compañia</Link>
                             </li>
                             <li>
-                                <Link to="/agregarCompania" onClick={closeMenu}>Agregar Compañia</Link>
+                                <Link to="/admin/agregarBus" onClick={closeMenu}>Agregar Bus</Link>
                             </li>
                             <li>
-                                <Link to="/agregarBus" onClick={closeMenu}>Agregar Bus</Link>
+                                <Link to="/admin/listarCompañias" onClick={closeMenu}>Listar Compañías</Link>
                             </li>
                             <li>
-                                <Link to="/listarCompañias" onClick={closeMenu}>Listar Compañías</Link>
+                                <Link to="/" onClick={closeMenu}>Cerrar secion</Link>
                             </li>
                         </ul>
                     </nav>
@@ -75,4 +75,4 @@ function OffcanvasExample() {
     );
 }
 
-export default OffcanvasExample;
+export default OffcanvasAdmin;

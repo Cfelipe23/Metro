@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import Axios from "axios";
 import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content';
 
+import withReactContent from 'sweetalert2-react-content';
 const MySwal = withReactContent(Swal);
 
-function CrudRuta() {
+function CrudCompania() {
     //-----------Variables que se van usar (Inicializacion)
     const [id_compania, setIdCompania] = useState();
     const [nombre, setNombre] = useState("");
@@ -119,9 +119,9 @@ function CrudRuta() {
         <div className="container">
             <br />
             {/* Parte donde se agregan datos de la compañia de buses */}
-            <div className="RectanguloCompania">
+            <div className="RectanguloCompania px-4 py-3">
                 <br />
-                <div className="input-group mb-2">
+                <div className="input-group mb-2 ">
                     <span className="input-group-text" id="basic-addon1">Nombre</span>
                     <input
                         type="text"
@@ -224,4 +224,4 @@ function CrudRuta() {
     );
 }
 
-export default CrudRuta;
+export default CrudCompania;
