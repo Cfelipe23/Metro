@@ -8,14 +8,17 @@ import Admin from './pagesAdmin/Admin';
 import HomeUser from './pages/HomeUser';
 import LoginAdmin from './pages/LoginAdmin';
 import Usuario from "./pages/Usuario"
+import HomeAdmin from "./pagesAdmin/HomeAdmin.js"
 
 function App() {
   return (
     <div>
       
-      <h1>BusWay</h1>
+  
       <Routes>
-        <Route path="admin" element={<Admin />}>
+      
+        <Route path="admin" element={<Admin/>}>
+          <Route path="/admin" element={<HomeAdmin/>} />
           <Route path="agregarCompania" element={<CrudCompania />} />
           <Route path="agregarBus" element={<CrudBus />} />
           <Route path="listarCompañias" element={<ListarCompañias />} />

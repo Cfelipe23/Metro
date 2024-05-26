@@ -1,10 +1,8 @@
-import { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function OffcanvasAdmin() {
     const [showOffcanvas, setShowOffcanvas] = useState(false);
-    
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -24,13 +22,22 @@ function OffcanvasAdmin() {
 
     return (
         <>
-            <button
-                className="btn btn-primary"
-                type="button"
-                onClick={() => setShowOffcanvas(true)}
-            >
-                <i className="bi bi-list"></i>
-            </button>
+            <div className="container-fluid">
+                <div className="row align-items-center">
+                    <div className="col-auto">
+                        <button
+                            className="btn btn-primary"
+                            type="button"
+                            onClick={() => setShowOffcanvas(true)}
+                        >
+                            <i className="bi bi-list"></i>
+                        </button>
+                    </div>
+                    <div className="col">
+                        <h1 className="display-4 fw-bold">Admin BusWay</h1>
+                    </div>
+                </div>
+            </div>
 
             <div
                 className={`offcanvas offcanvas-start ${showOffcanvas ? 'show' : ''}`}
@@ -38,11 +45,10 @@ function OffcanvasAdmin() {
                 tabIndex="-1"
                 id="offcanvasWithBothOptions"
                 aria-labelledby="offcanvasWithBothOptionsLabel"
-                
-                style={{ width: '250px', maxWidth: '80%' }} // Ajuste de ancho del offcanvas
+                style={{ width: '250px', maxWidth: '80%' }}
             >
                 <div className="offcanvas-header">
-                    <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">
+                    <h5 className="offcanvas-title fw-bold" id="offcanvasWithBothOptionsLabel">
                         Menu BusWay
                     </h5>
                     <button
@@ -55,17 +61,20 @@ function OffcanvasAdmin() {
                 <div className="offcanvas-body">
                     <nav>
                         <ul>
-                            <li>
-                                <Link to="/admin/agregarCompania" onClick={closeMenu}>Agregar Compañia</Link>
+                        <li>
+                                <Link className ="link-primary link-underline-opacity-0" to="/admin" onClick={closeMenu}>Perfil</Link>
                             </li>
                             <li>
-                                <Link to="/admin/agregarBus" onClick={closeMenu}>Agregar Bus</Link>
+                                <Link className ="link-primary link-underline-opacity-0" to="/admin/agregarCompania" onClick={closeMenu}>Agregar Compañia</Link>
                             </li>
                             <li>
-                                <Link to="/admin/listarCompañias" onClick={closeMenu}>Listar Compañías</Link>
+                                <Link className ="link-primary link-underline-opacity-0" to="/admin/agregarBus" onClick={closeMenu}>Agregar Bus</Link>
                             </li>
                             <li>
-                                <Link to="/" onClick={closeMenu}>Cerrar secion</Link>
+                                <Link  className ="link-primary link-underline-opacity-0" to="/admin/listarCompañias" onClick={closeMenu}>Listar Compañías</Link>
+                            </li>
+                            <li>
+                                <Link className="link-danger link-underline-opacity-0" to="/" onClick={closeMenu}>Cerrar sesion</Link>
                             </li>
                         </ul>
                     </nav>

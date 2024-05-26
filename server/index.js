@@ -24,6 +24,10 @@ db.connect((err) => {
     console.log('Conectado a la base de datos MySQL');
 });
 
+app.listen(3001, () => {
+    console.log("Servidor corriendo en el puerto 3001");
+});
+
 //----------sentencias SQL sobre el Login---------------
 app.post('/login', (req, res) => {
     const sql = "SELECT * FROM login WHERE username = ? AND password = ?";
@@ -37,7 +41,6 @@ app.post('/login', (req, res) => {
         }
     });
 });
-
 
 //----------sentencias SQL sobre la bd de compañia---------------
 app.post("/createCompania", (req, res) => {
@@ -185,6 +188,5 @@ app.put("/updateBus", (req, res) => {
 });
 
 
-app.listen(3001, () => {
-    console.log("Servidor corriendo en el puerto 3001");
-});
+//----------sentencias SQL sobre la busqueda de lugares--------------
+//                       en la barra de busqueda del apartado usuario

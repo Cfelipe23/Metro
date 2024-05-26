@@ -1,6 +1,5 @@
 import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import Axios from "axios";
 import Swal from 'sweetalert2';
@@ -176,11 +175,9 @@ function CrudCompania() {
             </div>
             <br />
             <br />
-
-
             <div className="table-responsive">
 
-                <table className="table table-striped">
+                <table className="table  table-bordered">
                     <thead>
                         <tr>
                             <th className="table-success text-center" scope="col">ID</th>
@@ -194,20 +191,21 @@ function CrudCompania() {
                         {companiaList.map((val, key) => {
                             return (
                                 <tr key={val.id_compania}>
-                                    <th >{val.id_compania}</th>
-                                    <td>{val.nombre}</td>
-                                    <td>{val.correo}</td>
-                                    <td>{val.telefono}</td>
+                                    <th className="text-center" >{val.id_compania}</th>
+                                    <td className="text-center">{val.nombre}</td>
+                                    <td className="text-center">{val.correo}</td>
+                                    <td className="text-center">{val.telefono}</td>
                                     <td>
-                                        <div className="btn-group" role="group" aria-label="Basic mixed styles example">
+                                        <div className=" Centrar" role="group" aria-label="Basic mixed styles example">
                                             <button
+
                                                 type="button"
                                                 onClick={() => { editarCompania(val) }}
-                                                className='btn btn-warning'>Actualizar</button>
+                                                className="btn btn-warning rounded-pill px-3 mx-1" style={{ borderRadius: '10%'}}>Editar</button>
                                             <button
-                                                type="button"
+                                                type="button "
                                                 onClick={() => { deleteCompania(val) }}
-                                                className='btn btn-danger'>Eliminar</button>
+                                                className="btn btn-danger rounded-pill px-3 mx-1" style={{ borderRadius: '10%'}}>Eliminar</button>
                                         </div>
                                     </td>
                                 </tr>
@@ -215,10 +213,6 @@ function CrudCompania() {
                         })}
                     </tbody>
                 </table >
-
-            </div>
-            <div className="Centrar">
-                <Link to="/" className="btn btn-success rounded-pill px-3 mx-3" style={{ borderRadius: '10%' }}>Regresar</Link>
             </div>
         </div >
     );

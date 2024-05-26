@@ -1,6 +1,5 @@
 import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link } from 'react-router-dom';
 import { useState, useEffect } from "react";
 
 import Axios from "axios";
@@ -14,7 +13,6 @@ function CrudBus() {
 
     const [companiaSeleccionada, setCompaniaSeleccionada] = useState("");
     const [companias, setCompanias] = useState([]);
-
     const [idBus, setIdBus] = useState(null);
     const [numeroBus, setNumeroBus] = useState("");
     const [placa, setPlaca] = useState("");
@@ -227,7 +225,7 @@ function CrudBus() {
             <br />
 
             <div className="table-responsive"> 
-            <table className="table table-striped">
+            <table className="table  table-bordered">
                 <thead>
                     <tr>
                         <th className="table-success text-center" scope="col">ID</th>
@@ -248,15 +246,15 @@ function CrudBus() {
                                 <td>{val.compania}</td>
                                 <td>{val.lugares}</td>
                                 <td>
-                                     <div className="btn-group" role="group" aria-label="Basic mixed styles example">
+                                     <div className="Centrar" role="group" aria-label="Basic mixed styles example">
                                         <button 
                                         type="button" 
                                         onClick={() => editarBus(val)}
-                                        className="btn btn-warning">Editar</button>
+                                        className="btn btn-warning rounded-pill px-3 mx-1" style={{ borderRadius: '10%'}}>Editar</button>
                                         <button 
                                         type="button" 
                                         onClick={() => deleteBus(val)}
-                                        className="btn btn-danger">Eliminar</button>
+                                        className="btn btn-danger rounded-pill px-3 mx-1" style={{ borderRadius: '10%'}}>Eliminar</button>
                                     </div>
                                 </td>
                             </tr>
@@ -264,11 +262,6 @@ function CrudBus() {
                     })}
                 </tbody>
             </table >
-
-
-            </div>
-            <div className="Centrar">
-                <Link to="/" className='btn btn-success rounded-pill px-3'>Regresar</Link>
             </div>
         </div>
 

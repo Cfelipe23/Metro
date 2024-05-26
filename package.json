@@ -1,0 +1,14 @@
+{
+  "name": "metro",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "concurrently \"npm run start-client\" \"node server start-server\"",
+    "start-client": "npm start --prefix client",
+    "start-server": "node server/index.js",
+    "build": "npm run build --prefix client",
+    "test": "npm test --prefix client"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

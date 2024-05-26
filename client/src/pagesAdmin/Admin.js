@@ -4,8 +4,8 @@ import OffcanvasAdmin from './OffcanvasAdmin';
 function Admin() {
     return (
         <div>
-                <OffcanvasAdmin />
-                <Outlet />
+           <OffcanvasAdmin />
+            <Outlet />
         </div>
     );
 }

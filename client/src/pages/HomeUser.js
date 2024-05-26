@@ -16,24 +16,22 @@ function HomeUser() {
     return (
         <div>
             <div className="container"> 
+            
                 <nav className="navbar bg-body-tertiary">
                     <div className="container-fluid  ">
                         <i className="navbar-brand ">¿A donde quieres ir?</i>
                         <form className="d-flex" role="search">
-                            <input className="form-control me-2"
+                            <input
+                                className="form-control me-2"
                                 type="search"
                                 placeholder="Escriba Lugar"
                                 aria-label="Search" />
                             <button className="btn btn-outline-success" type="submit">Buscar</button>
                         </form>
                     </div>
-                </nav>
-                
+                </nav>                
                 <br/>
-
-
                 <div className="table-responsive">
-
                     <table className="table table-striped">
                         <thead>
                             <tr>
