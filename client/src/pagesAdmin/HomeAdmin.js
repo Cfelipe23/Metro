@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import Axios from "axios"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function HomeAdmin() {
-    const [email, setEmail] = useState('correo@example.com');
+    const [email, setEmail] = useState('admin@admin.com');
     const [password, setPassword] = useState('');
     const [phone, setPhone] = useState('123-456-7890');
     const [image, setImage] = useState(null);
@@ -19,22 +20,32 @@ function HomeAdmin() {
             setEditMode(true);
         } else {
             const passwordPrompt = prompt('Por favor, ingresa tu contraseña:');
-            if (passwordPrompt === 'correct_password') { // Aquí debes comparar con la contraseña real
-                setIsAuthenticated(true);
-                setEditMode(true);
-            } else {
-                alert('Contraseña incorrecta');
+            if (passwordPrompt) {
+                Axios.post('/login', { password: passwordPrompt })
+                    .then((response) => {
+                        if (response.data.success) {
+                            setIsAuthenticated(true);
+                            setEditMode(true);
+                        } else {
+                            alert('Contraseña incorrecta');
+                        }
+                    })
+                    .catch((error) => {
+                        console.error('Error al autenticar:', error);
+                        alert('Error al autenticar');
+                    });
             }
         }
     };
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
         // Aquí puedes agregar la lógica para enviar los datos actualizados al servidor
         console.log('Email:', email);
-        console.log('Password:', password);
-        console.log('Phone:', phone);
-        console.log('Image:', image);
+        console.log('Contraseña:', password);
+        console.log('Teléfono:', phone);
+        console.log('Imagen:', image);
     };
 
     return (

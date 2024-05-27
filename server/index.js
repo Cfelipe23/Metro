@@ -37,10 +37,11 @@ app.post('/login', (req, res) => {
         if (data.length > 0) {
             return res.json({ success: true });
         } else {
-            return res.json({ success: false, message: "Credenciales erroneas" });
+            return res.json({ success: false, message:"Credenciales erroneas"});
         }
     });
 });
+
 
 //----------sentencias SQL sobre la bd de compañia---------------
 app.post("/createCompania", (req, res) => {
